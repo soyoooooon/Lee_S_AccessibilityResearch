@@ -18,13 +18,12 @@ var vm = new Vue({
           videosource: "",
       
           showDetails: false,
-        
-          isPlaying: false,
+          
+          isPlaying:false,
 
-          $ref: ('videoElement')
-       
-        },
-       
+          screen : false
+
+       },
           
 
     
@@ -45,10 +44,25 @@ var vm = new Vue({
 
     play() {
       
-    
+      this.$refs.videoEL.play()
       this.isPlaying = true;
 
   },
+  pause(){
+    this.$refs.videoEL.pause()
+    this.isPlaying = false;
+
+  },
+
+  fullScreen(){
+    this.$refs.videoEL.requestFullscreen()
+    this.screen = true;
+  },
+
+  rePlay(){
+    this.$refs.videoEL.currentTime=0
+    this.isPlaying = true;
+  }
 }
 
 
