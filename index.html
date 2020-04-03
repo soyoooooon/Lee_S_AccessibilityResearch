@@ -14,11 +14,14 @@
     <main id="app">
       <section class="hidden-movies" :class="{'show-movie' : showDetails }" > <!-- hidden movies-->
         <h3 :class="{'show-movie' : showDetails }">{{ videotitle }}</h3>
-        <button v-on:click="xButton">X</button> 
-          <video id="videoElement" :src="'images/' + videosource"  controls v-if="showDetails"></video>
+        <button class="closed" v-on:click="xButton">X</button> 
+          <video ref="videoEL" :src="'images/' + videosource" controls v-if="showDetails"></video>
             <p :class="{'show-movie' : showDetails }">{{ videodescription }}</p>
-            <button :disabled="isPlaying" @click="play">Play</button>
-            <!-- <img src="images/play-button.svg" v-on:click="play"> -->
+            <button class="buttons" :disabled="isPlaying" v-on:click="play">Play</button>
+            <button  class="buttons" :disabled="!isPlaying" v-on:click="pause">Pause</button>
+            <button class="buttons" v-on:click="rePlay">Replay</button>
+            <button class="buttons" v-on:click="fullScreen">Full Screen</button>
+            
         </section>
        <h2>A/V Accessibility Research Project</h2> 
 
