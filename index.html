@@ -5,15 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <title>Accessibility Research</title>
 </head>
 <body>
-    <main>
-       <h2>A/V Accessibility Research Project</h2> 
-        <section class="container">
-        
-
+    <main id="app">
+      <section class="hidden-movies" :class="{'show-movie' : showDetails }" > <!-- hidden movies-->
+        <h3 :class="{'show-movie' : showDetails }">{{ videotitle }}</h3>
+        <button v-on:click="xButton">X</button> 
+          <video id="videoElement" :src="'images/' + videosource"  controls v-if="showDetails"></video>
+            <p :class="{'show-movie' : showDetails }">{{ videodescription }}</p>
+            <button :disabled="isPlaying" @click="play">Play</button>
+            <!-- <img src="images/play-button.svg" v-on:click="play"> -->
         </section>
+       <h2>A/V Accessibility Research Project</h2> 
+
+
+        <section id="container">
+            <ul class="video-poster">
+              
+              <li v-for="movie in videodata">
+                <a :href="movie.vidsource" @click.prevent="showMovie(movie)">
+                  <img :src="'images/' + movie.thumb" alt="movie poster">
+                </a> 
+              </li></ul>
+        </section>
+
+        
+          
     </main>
+  
+    <script defer src="js/main.js"></script>
 </body>
 </html>
