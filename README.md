@@ -23,6 +23,6 @@
 ## Reference
 
 * 
-* (Trevor's lesson)[https://github.com/Trevor-FanshaweC]
-* (Vue.js cheat sheet)[https://flaviocopes.com/vue-cheat-sheet/]
+* [Trevor's lesson](https://github.com/Trevor-FanshaweC)
+* [Vue.js cheat sheet](https://flaviocopes.com/vue-cheat-sheet/)
 * Looking around Stack Overflow
